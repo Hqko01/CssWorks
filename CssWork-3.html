@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/838877542269845525/878217894956249118/icon1.png"/>
+    <script src="https://kit.fontawesome.com/d571cfa083.js" crossorigin="anonymous"></script>
+    <title>CssWorkThree</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+        body {
+            height: 100vh;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+            }
+
+        ::-webkit-scrollbar-track {
+            background: linear-gradient(360deg, rgb(189, 189, 189) ,black) 
+            }
+            
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(360deg , rgb(35, 87, 155) ,rgb(10, 10, 10));
+            }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(35, 87, 155)
+            }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            padding: 0 100px;
+            background: #000;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            transition: 1s;
+        }
+
+        header.sticky {
+            height: 80px;
+        }
+
+        header .banner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 1s;
+        }
+
+        header.sticky .banner {
+            opacity: 0.5;
+        }
+
+        header .logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 15vw;
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            z-index: 1;
+            transition: 1s;
+        }
+
+        header.sticky .logo {
+            position: absolute;
+            font-size: 2em;
+            left: 100px;
+            transform: translate(0%, -50%);
+        }
+
+        nav {
+            position: relative;
+            display: flex;
+            z-index: 1;
+        }
+
+        nav ul {
+            position: relative;
+            display: flex;
+            transition: 0.25s;
+            transform: translateX(100px);
+            opacity: 0;
+        }
+
+        header.sticky nav ul {
+            transform: translateX(0);
+            opacity: 1;
+            transition-delay: 0.75s;
+            visibility: visible;
+        }
+
+        nav ul li {
+            list-style: none;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 1.2em;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            color: #ff275f;
+        }
+
+        section {
+            margin-top: 20vh;
+            padding: 50px;
+        }
+
+        section h2 {
+            font-size: 3em;
+        }
+
+        section p {
+            font-size: 1.1em;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        @media screen and (max-width: 991px) {
+            section,
+            header {
+                padding: 40px;
+            }
+
+            section h2 {
+                font-size: 2em;
+            }
+
+            header.sticky .logo {
+                left: 40px;
+            }
+
+            header.sticky .banner {
+                opacity: .25;
+            }
+
+            nav ul {
+                display: none;
+                opacity: 0;
+                visibility: hidden;
+            }
+            
+            header.sticky .toggle {
+                position: fixed;
+                top: 28px;
+                right: 40px;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                background: #fff url(https://cdn.discordapp.com/attachments/877469065160065085/878240866093924402/menu.png);
+                background-repeat: no-repeat;
+                background-size: 22px;
+                background-position: center;
+            }
+
+            header.sticky .toggle.active {
+                background: #fff url(https://cdn.discordapp.com/attachments/877469065160065085/878240864630112366/close.png);
+                background-repeat: no-repeat;
+                background-size: 20px;
+                background-position: center;
+            }
+
+            nav.active ul {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                height: calc(100% - 80px);
+                background: #000;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+            
+            nav ul li a {
+                font-size: 1.5em;
+                padding: 5px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://cdn.discordapp.com/attachments/537390406678085676/1013918679848726588/wallpaperbetter.com_7680x4320.jpg" class="banner" alt="">
+        <a href="#Pluto" class="logo">Pluto</a>
+        <div class="toggle"></div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="#">Contant</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2 id="Pluto">Pluto</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic voluptatem temporibus architecto recusandae omnis accusantium porro repellendus atque assumenda, explicabo soluta veritatis velit in suscipit eligendi, est, minima obcaecati dolore. Eum aperiam sunt possimus eos. Expedita id fugit laboriosam repellendus illo assumenda aspernatur quos. Soluta quas, quos sunt recusandae quaerat debitis expedita magnam, repellat adipisci, cupiditate doloremque. Dolorem, magnam dolores fugiat ullam amet sed et voluptas asperiores perspiciatis nihil commodi, magni tempore cumque omnis in modi necessitatibus officia. Ducimus aut illum omnis nobis, fugit possimus ipsa molestiae atque consectetur amet officiis aliquam explicabo nesciunt vel dolor perspiciatis rerum deleniti minus placeat. Ratione commodi molestiae sapiente cumque amet? Hic non doloremque vitae aperiam saepe esse cum porro error excepturi maiores labore omnis fugiat, repudiandae iste ducimus magni natus deleniti rerum et voluptates! Porro delectus maxime deleniti. Ab rem corporis placeat repudiandae saepe quisquam excepturi dolorum tenetur culpa perferendis quo quos quibusdam eaque vel beatae animi, veniam repellendus autem! Aut quas libero dolore officia quasi sapiente quis aliquam. Libero explicabo maxime ut sed quaerat qui nemo fugit, cum delectus voluptate ratione illum voluptatum tempora ex sequi beatae cumque nostrum ea sunt? Veniam atque neque nobis, placeat nostrum, aliquid reprehenderit fugit quis itaque facilis exercitationem, vel consequatur voluptatibus ipsam labore. Libero ex distinctio voluptates, sunt placeat nobis aspernatur, recusandae laudantium cupiditate fugiat harum numquam nesciunt, in voluptate eveniet eaque doloremque delectus voluptatibus ipsum officiis. Distinctio odio voluptatem dolore nulla sunt modi hic laudantium deserunt nobis numquam eaque itaque dolor maiores dignissimos minima, sit laborum, esse fugiat vitae ea deleniti accusantium veritatis voluptatum explicabo! Quae reiciendis dolore non, praesentium iusto officia sint consequuntur officiis sed cum saepe iure nam. Officiis vero repellat omnis dicta quisquam, rem sequi explicabo sint sapiente ratione tempore inventore tenetur quaerat vitae sed enim similique vel, quasi ipsam voluptate quae hic quibusdam! Vitae dolor magni laborum labore sed, numquam quaerat, odit beatae quam tempore quo dicta amet odio earum culpa veritatis perspiciatis incidunt sequi placeat nostrum porro. Soluta corporis culpa libero, blanditiis deleniti magni at quaerat harum minima voluptates rerum a non molestias exercitationem praesentium. Sed nemo omnis ratione unde.</p>
+    </section>
+</body>
+<script>
+    window.addEventListener("scroll", () => {
+        const header = document.querySelector('header');
+        header.classList.toggle('sticky', window.scrollY > 0)
+    });
+
+    const navigation = document.querySelector('nav');
+
+    const toggle = document.querySelector('.toggle');
+    toggle.addEventListener('click', () => {
+        toggle.classList.toggle('active');
+        navigation.classList.toggle('active');
+    })
+</script>
+</html>

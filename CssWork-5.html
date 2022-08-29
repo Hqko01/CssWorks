@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/838877542269845525/878217894956249118/icon1.png" />
+    <script src="https://kit.fontawesome.com/d571cfa083.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CssWorkFive</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #232c33;
+        }
+
+        .navigation {
+            position: relative;
+            height: 500px;
+            width: 70px;
+            background: #2b343b;
+            box-shadow: 10px 0 0 #4187f6;
+            border-left: 10px solid #2b343b;
+            overflow-x: hidden;
+            transition: width .5s;
+        }
+
+        .navigation:hover {
+            width: 300px;
+        }
+
+        .navigation ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding-left: 5px;
+            padding-top: 40px;
+        }
+
+        .navigation ul li {
+            position: relative;
+            list-style: none;
+            width: 100%;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        .navigation ul li.active {
+            background: #4187f6;
+        }
+
+        .navigation ul li a {
+            position: relative;
+            display: block;
+            width: 100%;
+            display: flex;
+            text-decoration: none;
+            color: white;
+        }
+
+        .navigation ul li.active a::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            box-shadow: 15px 15px 0 #4187f6;
+        }
+
+        .navigation ul li.active a::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            box-shadow: 15px -15px 0 #4187f6;
+        }
+
+        .navigation ul li a .icon {
+            position: relative;
+            display: block;
+            min-width: 60px;
+            height: 60px;
+            line-height: 70px;
+            text-align: center;
+        }
+
+        .navigation ul li a .icon i {
+            position: relative;
+            font-size: 1.5em;
+            z-index: 1;
+        }
+
+        .navigation ul li a .title {
+            position: relative;
+            display: block;
+            padding-left: 10px;
+            height: 60px;
+            line-height: 60px;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navigation">
+        <ul>
+            <li class="list active">
+                <a href="#">
+                    <span class="icon"><i class="fas fa-home"></i></span>
+                    <span class="title">Home</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><i class="fas fa-id-badge"></i></span>
+                    <span class="title">Profile</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><i class="fas fa-comment"></i></span>
+                    <span class="title">Messages</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><i class="fas fa-cogs"></i></span>
+                    <span class="title">Settings</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><i class="fas fa-question-circle"></i></span>
+                    <span class="title">Help</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><i class="fas fa-key"></i></span>
+                    <span class="title">Password</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                    <span class="title">Sign Out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    const list = document.querySelectorAll('.list');
+    function activeLink() {
+        list.forEach((item) =>
+            item.classList.remove('active'));
+        this.classList.add('active');
+    }
+    list.forEach((item) =>
+        item.addEventListener('click', activeLink));
+</script>
+
+</html>
