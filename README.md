@@ -9,12 +9,12 @@
 </p>
 
 <ul>
-  <li>https://cssworks.netlify.app/cssworkone</li>
-  <li>https://cssworks.netlify.app/cssworktwo</li>
-  <li>https://cssworks.netlify.app/cssworkthree</li>
-  <li>https://cssworks.netlify.app/cssworkfour</li>
-  <li>https://cssworks.netlify.app/cssworkfive</li>
-  <li>https://cssworks.netlify.app/cssworksix</li>
-  <li>https://cssworks.netlify.app/cssworkseven</li>
-  <li>https://cssworks.netlify.app/cssworkeight</li>
+ <li>https://cssworks.netlify.app/csswork-1</li>
+ <li>https://cssworks.netlify.app/csswork-2</li>
+ <li>https://cssworks.netlify.app/csswork-3</li>
+ <li>https://cssworks.netlify.app/csswork-4</li>
+ <li>https://cssworks.netlify.app/csswork-5</li>
+ <li>https://cssworks.netlify.app/csswork-6</li>
+ <li>https://cssworks.netlify.app/csswork-7</li>
+ <li>https://cssworks.netlify.app/csswork-8</li>
 </ul>
