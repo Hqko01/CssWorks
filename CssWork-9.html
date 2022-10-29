@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d571cfa083.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, rgb(184, 17, 73), rgb(154, 9, 221));
+        }
+
+        .menu {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu li {
+            position: absolute;
+            left: 0;
+            text-decoration: none;
+            list-style: none;
+            transform-origin: 100px;
+            transition: .5s;
+            transition-delay: calc(.1s * var(--i));
+            transform: rotate(0deg) translateX(80px);
+        }
+
+        .menu.active li {
+            transform: rotate(calc(360deg / -8 * var(--i)));
+        }
+
+        .menu li a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+            color: black;
+            transition: .5s;
+            transform: rotate(calc(360deg / 8 * var(--i)));
+        }
+
+        .menu li a:hover {
+            color: red;
+        }
+
+        .toggle {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            align-items: center;
+            z-index: 10000;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+            font-size: 2em;
+            transition: transform 1.25s;
+        }
+
+        .menu.active .toggle {
+            transform: rotate(315deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="toggle"><i class="fa-sharp fa-solid fa-plus"></i></div>
+        <li style="--i:0;">
+            <a href="#"><i class="fa-sharp fa-solid fa-house"></i></a>
+        </li>
+        <li style="--i:1;">
+            <a href="#"><i class="fa-sharp fa-solid fa-user"></i></a>
+        </li>
+        <li style="--i:2;">
+            <a href="#"><i class="fa-sharp fa-solid fa-heart"></i></a>
+        </li>
+        <li style="--i:3;">
+            <a href="#"><i class="fa-sharp fa-solid fa-car"></i></a>
+        </li>
+        <li style="--i:4;">
+            <a href="#"><i class="fa-sharp fa-solid fa-gear"></i></a>
+        </li>
+        <li style="--i:5;">
+            <a href="#"><i class="fa-sharp fa-solid fa-droplet"></i></a>
+        </li>
+        <li style="--i:6;">
+            <a href="#"><i class="fa-sharp fa-solid fa-hand"></i></a>
+        </li>
+        <li style="--i:7;">
+            <a href="#"><i class="fa-sharp fa-solid fa-globe"></i></a>
+        </li>
+    </div>
+</body>
+<script>
+    let toggle = document.querySelector('.toggle')
+    let menu = document.querySelector('.menu')
+
+    toggle.onclick = function () {
+        menu.classList.toggle('active')
+    }
+</script>
+
+</html>
