@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/838877542269845525/878217894956249118/icon1.png" />
+    <title>CssWork-10</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: radial-gradient(rgb(32, 83, 141), blue);
+        }
+
+        .container {
+            height: 60vh;
+            width: 30vw;
+            position: absolute;
+            top: 50vh;
+            left: 50vw;
+            transform: translate(-50%, -50%);
+            perspective: 1000px;
+        }
+
+        .box {
+            height: 250px;
+            width: 250px;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            transform-style: preserve-3d;
+            animation: rotate 2s infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotateY(180deg);
+            }
+
+            50% {
+                transform: rotateX(90deg);
+            }
+
+            75% {
+                transform: rotateY(180deg);
+            }
+
+            100% {
+                transform: rotateX(180deg);
+            }
+        }
+
+        .card {
+            height: 250px;
+            width: 250px;
+            text-align: center;
+            padding: 100px 0px;
+            color: white;
+            background-color: black;
+            border: 2px solid white;
+            font-size: 32px;
+            box-sizing: border-box;
+            position: absolute;
+        }
+
+        #Front {
+            transform: translateZ(125px);
+        }
+
+        #Back {
+            transform: translateZ(-125px);
+        }
+
+        #Left {
+            right: 125px;
+            transform: rotateY(-90deg);
+        }
+
+        #Right {
+            left: 125px;
+            transform: rotateY(90deg);
+        }
+
+        #Top {
+            bottom: 125px;
+            transform: rotateX(90deg);
+        }
+
+        #Bottom {
+            top: 125px;
+            transform: rotateX(-90deg);
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="card" id="Front">Front</div>
+            <div class="card" id="Back">Back</div>
+            <div class="card" id="Left">Left</div>
+            <div class="card" id="Right">Right</div>
+            <div class="card" id="Top">Top</div>
+            <div class="card" id="Bottom">Bottom</div>
+        </div>
+    </div>
+</body>
+
+</html>
