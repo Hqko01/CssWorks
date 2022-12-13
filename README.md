@@ -17,6 +17,6 @@
  <li>https://cssworks.netlify.app/csswork-6</li>
  <li>https://cssworks.netlify.app/csswork-7</li>
  <li>https://cssworks.netlify.app/csswork-8</li>
- <li>https://cssworks.netlify.app/csswork-9</li>
- <li>https://cssworks.netlify.app/csswork-10</li>
+ <li>https://cssworks.netlify.app/csswork-9.0</li>
+ <li>https://cssworks.netlify.app/csswork-9.1</li>
 </ul>
