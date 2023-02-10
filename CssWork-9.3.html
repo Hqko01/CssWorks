@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CssWork9.2</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #283618;
+            overflow: hidden;
+        }
+
+        #sound {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            height: 8rem;
+        }
+
+        #sound > i  {
+            display: block;
+            border-radius: .5rem;
+            width: 1rem;
+            height: 2rem;
+            background-color: #fefae0;
+            filter: drop-shadow(0 0 3px #fefae0);
+            animation: anim .5s linear 0s infinite alternate;
+        }
+
+        @keyframes anim {
+            from {
+                height: 2rem;
+            }
+
+            to {
+                height: 9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sound"></div>
+</body>
+<script>
+    for (let i = 0; i < 9; i++) {
+        let x = document.createElement('i')
+        x.style.animationDelay = i /6 + 's'
+        document.getElementById('sound').append(x)
+    }
+</script>
+</html>
