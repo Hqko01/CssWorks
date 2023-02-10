@@ -20,4 +20,6 @@
  <li>https://cssworks.netlify.app/csswork-9.0</li>
  <li>https://cssworks.netlify.app/csswork-9.1</li>
  <li>https://cssworks.netlify.app/csswork-9.2</li>
+ <li>https://cssworks.netlify.app/csswork-9.3</li>
+ <li>https://cssworks.netlify.app/csswork-9.4</li>
 </ul>
