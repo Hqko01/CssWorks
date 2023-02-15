@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CssWork9.5</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        body {
+            background-color: gray;
+            height: 100vh;
+        }
+
+        .menu {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu .content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: .5pc;
+            width: 5pc;
+            height: 5pc;
+            background-color: rgb(37, 37, 37);
+            border-radius: .5pc;
+            cursor: pointer;
+            overflow: hidden;
+            transition: .9s;
+        }
+
+        .content:active {
+            transform: scale(.85);
+        }
+
+        .content .line {
+            width: 100%;
+            height: 5px;
+            background-color: rgb(218, 216, 216);
+            border-radius: 2pc;
+            transition: .9s;
+        }
+
+        .content .line:nth-child(2) {
+            margin: 1pc 0 1pc 0;
+        }
+
+        /* Active */
+
+
+        .content.active .line {
+            position: absolute;
+            width: 80%;
+        }
+
+        .content.active .line:nth-child(1) {
+            transform: rotate(135deg);
+            animation: lineOne .9s;
+        }
+
+        @keyframes lineOne {
+
+            0% {
+                top: 300%;
+                right: 100%;
+            }
+
+            100% {
+                top: 47%;
+                right: 10%;
+            }
+        }
+
+        .content.active .line:nth-child(2) {
+            margin: 0;
+            transform: rotate(360deg);
+            opacity: 0;
+            width: 0;
+        }
+
+        .content.active .line:nth-child(3) {
+            transform: rotate(-135deg);
+            animation: lineThree .9s;
+        }
+
+        @keyframes lineThree {
+            0% {
+                top: 150%;
+                left: 100%;
+            }
+
+            100% {
+                top: 47%;
+                left: 10%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="content">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </div>
+</body>
+<script>
+    const content = document.querySelector('.content')
+
+    content.addEventListener('click', () => {
+        content.classList.toggle('active')
+    })
+</script>
+
+</html>
