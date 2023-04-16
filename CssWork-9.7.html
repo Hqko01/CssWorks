@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CssWork 9.7</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: blanchedalmond;
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 75vh;
+        }
+
+        .bt {
+            position: absolute;
+            height: 100%;
+            width: 5pc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            z-index: 5;
+        }
+
+        .bt p {
+            transition: .3s;
+            font-size: 4pc;
+            color: whitesmoke;
+        }
+
+        .bt:hover p {
+            transform: scale(1.1);
+        }
+
+        .bt:active p {
+            transform: scale(.9);
+        }
+
+        .slider .back {
+            left: 0;
+        }
+
+        .slider .next {
+            right: 0;
+        }
+
+        .slider .Images {
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            overflow-X: scroll;
+            scroll-behavior: smooth;
+        }
+
+        .slider .Images::-webkit-scrollbar {
+            height: 0;
+        }
+
+        .slider .Images:hover {
+            overflow-x: hidden;
+        }
+
+        .slider .Images img {
+            position: relative;
+            filter: brightness(80%);
+            flex: 100%;
+            min-width: 100%;
+            height: 100%;
+        }
+
+        .slider .radio {
+            position: absolute;
+            width: 100%;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -100%);
+            padding-bottom: 1pc;
+            letter-spacing: 1pc;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .slider .radio .ck {
+            display: inline-block;
+            width: 3pc;
+            height: .2pc;
+            border-radius: 1pc;
+            background-color: #918f8f;
+            cursor: pointer;
+            transition: .4s;
+        }
+
+        .slider .radio .ck.active {
+            background-color: whitesmoke;
+            box-shadow: 0 0 3px whitesmoke;
+            margin-bottom: .3pc;
+            transform: scale(1.1)
+        }
+
+        @media only screen and (max-width: 600px) {
+            .slider {
+                height: 50vh;
+            }
+
+            .bt p {
+                font-size: 2.5pc;
+            }
+
+            .slider .radio .ck {
+                width: 2pc;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <div class="back bt">
+            <p>
+                < </p>
+        </div>
+        <div class="Images">
+            <img src="https://picsum.photos/1366/720" alt="">
+            <img src="https://picsum.photos/1366/721" alt="">
+            <img src="https://picsum.photos/1366/722" alt="">
+            <img src="https://picsum.photos/1366/723" alt="">
+        </div>
+        <div class="radio">
+            <div class="ck active"></div>
+            <div class="ck"></div>
+            <div class="ck"></div>
+            <div class="ck"></div>
+        </div>
+        <div class="next bt">
+            <p>
+                >
+            </p>
+        </div>
+    </div>
+
+</body>
+<script>
+    const next = document.querySelector('.slider .next')
+    const back = document.querySelector('.slider .back')
+    const Images = document.querySelector('.slider .Images')
+    const radioCK = document.querySelectorAll('.slider .radio .ck')
+
+    var number = 0
+
+    next.addEventListener('click', () => {
+        Images.scrollLeft += Images.scrollWidth / Images.children.length
+        number++
+        if (number == 4) {
+            number = 0
+            Images.scrollLeft = 0
+        }
+        numberRadio()
+    })
+
+    back.addEventListener('click', () => {
+        Images.scrollLeft -= Images.scrollWidth / Images.children.length
+        number--
+        if (number < 0) {
+            number = 3
+            Images.scrollLeft = Images.scrollWidth
+        }
+        numberRadio()
+    })
+
+    function numberRadio() {
+        radioCK.forEach(element => {
+            for (let i = 0; i < element.parentElement.children.length; i++) {
+                element.parentElement.children[i].classList.remove('active')
+            }
+
+            if(number == 0) {
+                element.parentElement.children[0].classList.add('active')
+            }
+            else if(number == 1) {
+                element.parentElement.children[1].classList.add('active')
+            }
+            else if(number == 2) {
+                element.parentElement.children[2].classList.add('active')
+            }
+            else if(number == 3) {
+                element.parentElement.children[3].classList.add('active')
+            }
+        })
+    }
+
+    radioCK.forEach(element => {
+        element.addEventListener('click', () => {
+            for (let i = 0; i < element.parentElement.children.length; i++) {
+                element.parentElement.children[i].classList.remove('active')
+            }
+            element.classList.add('active')
+
+            if (element.parentElement.children[0] == element) {
+                number = 0
+                Images.scrollLeft = 0
+            }
+
+            else if (element.parentElement.children[1] == element) {
+                number = 1
+                Images.scrollLeft = Images.scrollWidth / 4
+            }
+
+            else if (element.parentElement.children[2] == element) {
+                number = 2
+                Images.scrollLeft = Images.scrollWidth / 2
+            }
+
+            else if (element.parentElement.children[3] == element) {
+                number = 3
+                Images.scrollLeft = Images.scrollWidth
+            }
+        })
+    })
+
+</script>
+
+</html>

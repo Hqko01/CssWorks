@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CssWork 9.6</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #232323;
+            color: whitesmoke;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .animated-text {
+            font-size: 34px;
+            font-weight: 600;
+            min-width: 280px;
+        }
+
+        .animated-text span {
+            position: relative;
+        }
+
+        .animated-text span::before {
+            content: 'Ben';
+            color: orangered;            
+            animation: words 5s infinite;
+        }
+
+        .animated-text span::after {
+            content: '';
+            position: absolute;
+            width: calc(100% + 8px);
+            height: 100%;
+            background-color: #232323;
+            border-left: 2px solid orangered;
+            right: -8px;
+            animation: cursor .8s infinite, typing 12.5s steps(14) infinite;
+        }
+
+        @keyframes cursor {
+            to {
+                border-left: 2px solid rgba(255, 68, 0, 0.151);
+            }
+        }
+
+        @keyframes words {
+            0%,50% {
+                content: 'Ben';
+            }
+
+            51%,100% {
+                content: 'Hakan';
+            }
+        }
+
+        @keyframes typing {
+            10%,15%,30%,35%,50%,55%,70%,75%,90%,95% {
+                width: 0;
+            }
+            5%,20%,25%,40%,45%,60%,65%,80%,85% {
+                width: calc(100% + 8px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-text">
+        Merhaba <span></span>
+    </div>
+</body>
+</html>
