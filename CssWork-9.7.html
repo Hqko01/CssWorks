@@ -72,14 +72,6 @@
             scroll-behavior: smooth;
         }
 
-        .slider .Images::-webkit-scrollbar {
-            height: 0;
-        }
-
-        .slider .Images:hover {
-            overflow-x: hidden;
-        }
-
         .slider .Images img {
             position: relative;
             filter: brightness(80%);
@@ -166,6 +158,17 @@
     const radioCK = document.querySelectorAll('.slider .radio .ck')
 
     var number = 0
+    var myInterval = setInterval(timer, 4000)
+
+    function timer() {
+        number++
+        Images.scrollLeft += Images.scrollWidth / Images.children.length
+        if (number == 4) {
+            number = 0
+            Images.scrollLeft = 0
+        }
+        numberRadio()
+    }
 
     next.addEventListener('click', () => {
         Images.scrollLeft += Images.scrollWidth / Images.children.length
@@ -174,6 +177,8 @@
             number = 0
             Images.scrollLeft = 0
         }
+        clearInterval(myInterval)
+        myInterval = setInterval(timer, 4000)
         numberRadio()
     })
 
@@ -184,6 +189,8 @@
             number = 3
             Images.scrollLeft = Images.scrollWidth
         }
+        clearInterval(myInterval)
+        myInterval = setInterval(timer, 4000)
         numberRadio()
     })
 
@@ -193,16 +200,16 @@
                 element.parentElement.children[i].classList.remove('active')
             }
 
-            if(number == 0) {
+            if (number == 0) {
                 element.parentElement.children[0].classList.add('active')
             }
-            else if(number == 1) {
+            else if (number == 1) {
                 element.parentElement.children[1].classList.add('active')
             }
-            else if(number == 2) {
+            else if (number == 2) {
                 element.parentElement.children[2].classList.add('active')
             }
-            else if(number == 3) {
+            else if (number == 3) {
                 element.parentElement.children[3].classList.add('active')
             }
         })
@@ -234,8 +241,11 @@
                 number = 3
                 Images.scrollLeft = Images.scrollWidth
             }
+            clearInterval(myInterval)
+            myInterval = setInterval(timer, 4000)
         })
     })
 
 </script>
+
 </html>
