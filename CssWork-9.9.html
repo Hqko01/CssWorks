@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CssWork-9.9</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #0b0423;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #left, #right {
+            width: 300px;
+            min-height: 400px;
+            margin: 20px;
+            border: 2px dashed #fff;
+        }
+
+        .list {
+            background-color: #e91e63;
+            height: 60px;
+            margin: 30px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            cursor: grab;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="left">
+            <div class="list" draggable="true">
+                list item 1
+            </div>
+            <div class="list" draggable="true">
+                list item 2
+            </div>
+            <div class="list" draggable="true">
+                list item 3
+            </div>
+            <div class="list" draggable="true">
+                list item 4
+            </div>
+        </div>
+        <div id="right"></div>
+    </div>
+</body>
+<script>
+    let lists = document.getElementsByClassName('list')
+    let leftBox = document.getElementById('left')
+    let rightBox = document.getElementById('right')
+    
+    for(list of lists) {
+        list.addEventListener('dragstart', e => {
+            let selected = e.target
+
+            rightBox.addEventListener('dragover', e => {
+                e.preventDefault()
+            })
+
+            rightBox.addEventListener('drop', e => {
+                rightBox.appendChild(selected)
+                selected = null
+            })
+
+            leftBox.addEventListener('dragover', e => {
+                e.preventDefault()
+            })
+
+            leftBox.addEventListener('drop', e => {
+                leftBox.appendChild(selected)
+                selected = null
+            })
+        })
+    }
+</script>
+</html>
