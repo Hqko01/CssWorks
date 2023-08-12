@@ -27,5 +27,5 @@
  <li>https://cssworks.netlify.app/csswork-9.7</li>
  <li>https://cssworks.netlify.app/csswork-9.8</li>
  <li>https://cssworks.netlify.app/csswork-9.9</li>
- <li>https://cssworks.netlify.app/csswork-9.9.1</li>
+ <li>https://cssworks.netlify.app/csswork-9.9.1</li> (Güçlü Cihaz Gerektirir..)
 </ul>
