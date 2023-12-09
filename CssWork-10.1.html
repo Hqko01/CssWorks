@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/838877542269845525/878217894956249118/icon1.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CssWorkEleven</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            height: 200vh;
+            background-color: #353535;
+        }
+
+        section {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #edede9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            clip-path: circle(0 at left center);
+            z-index: 2;
+        }
+
+        .title {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            text-align: center;
+            color: rgb(0, 162, 255);
+            z-index: 1;
+            font-size: 25vw;
+        }
+
+        .inner-title {
+            font-size: 25vw;
+            z-index: 1;
+            background-image: url(https://fastly.picsum.photos/id/719/1920/1020.jpg?hmac=e6Dv6Od6f99VMY8palt72nzB6GYRWqy_Anpt1-dN9OM);
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 class="title">Hakan</h2>
+    <section>
+        <h2 class="inner-title">Hakan</h2>
+    </section>
+</body>
+<script>
+    const section = document.querySelector('section')
+
+    window.addEventListener('scroll', () => {
+        var scrollLength = window.scrollY
+
+        section.style.clipPath = `circle(${scrollLength * 1.5}px at left center)`
+    })
+
+</script>
+</html>
