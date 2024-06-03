@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: #070a11;
+            color: white;
+            display: grid;
+            min-block-size: 100vh;
+            place-content: center;
+            font-family: system-ui;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: clamp(24px, 3vw, 30px);
+            margin-bottom: 1rem;
+        }
+
+        .tag-list {
+            margin: 0;
+            padding-inline: 0;
+            list-style: none;
+        }
+
+        .tag-list li {
+            padding: 1rem;
+            background: #364a71;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1rem -0.25rem #010e28;
+            transition: 300ms;
+            cursor: pointer;
+        }
+
+        .scroller {
+            max-width: 600px;
+            /* border: 3px solid lime; */
+        }
+
+        .scroller__inner {
+            display: flex;
+            padding-block: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .scroller[data-animated="true"] {
+            overflow: hidden;
+            -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+            mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+        }
+
+        .scroller[data-animated="true"] .scroller__inner {
+            width: max-content;
+            flex-wrap: nowrap;
+            animation: scroll var(--_animation-duration, 40s) var(--_animation-direction, forwards) linear infinite;
+            animation-delay: 1s;
+        }
+
+        .scroller[data-direction='left'] {
+            --_animation-direction: forwards;
+        }
+
+        .scroller[data-direction='right'] {
+            --_animation-direction: reverse;
+        }
+
+        .scroller[data-direction='slow'] {
+            --_animation-duration: 20s;
+        }
+
+        .scroller[data-speed='fast'] {
+            --_animation-duration: 10s;
+        }
+
+
+        @keyframes scroll {
+            to {
+                transform: translate(calc(-50% - 0.5rem));
+            }
+        }
+
+        img {
+            max-height: 200px;
+            max-width: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: 300ms;
+            filter: grayscale(.2);
+            cursor: pointer;
+        }
+
+        .scroller[data-animated="true"] .scroller__inner:has(img:hover, img:active, img:focus) {
+            -webkit-animation-play-state: paused;
+            animation-play-state: paused;
+        }
+
+        img:hover,
+        img:focus,
+        img:active {
+            transform: scale(1.1);
+            filter: saturate(1.5);
+        }
+
+        .scroller[data-animated="true"] .scroller__inner:has(li:hover, li:active, li:focus) {
+            -webkit-animation-play-state: paused;
+            animation-play-state: paused;
+        }
+
+        li:hover,
+        li:focus,
+        li:active {
+            transform: scale(1.1);
+            filter: saturate(3);
+        }
+
+        /* I put some hover effect and make the animation paused for on hover with animation play state.
+        Read about animation-play-state here 
+        https://www.quackit.com/css/codes/marquees/how_to_pause_a_marquee_on_hover.cfm#:~:text=The%20animation%2Dplay%2Dstate%20property,their%20cursor%20over%20the%20marquee. */
+    </style>
+</head>
+
+<body>
+
+    <h1>Infinite Scrolling Animation</h1>
+
+    <div class="scroller" data-direction="left" data-speed="fast">
+        <ul class="tag-list scroller__inner">
+            <li>Cheeky</li>
+            <li>monkey</li>
+            <li>swinging</li>
+            <li>through</li>
+            <li>trees</li>
+            <li>with</li>
+            <li>ease !</li>
+        </ul>
+    </div>
+
+    <div class="scroller" data-direction="right" data-speed="slow">
+        <div class="scroller__inner tag-list">
+            <img src="https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80"
+                alt="brown monkey">
+            <img src="https://images.unsplash.com/photo-1605559911160-a3d95d213904?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1011&q=80"
+                alt="a little monkey">
+            <img src="https://images.unsplash.com/photo-1615038552039-e1b271f14ec8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80"
+                alt="monkey with big mouth opened">
+            <img src="https://images.unsplash.com/photo-1463852247062-1bbca38f7805?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80"
+                alt="a big monkey">
+            <img src="https://images.unsplash.com/photo-1618661057302-8b01d93bd898?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1162&q=80"
+                alt="a running monkey">
+            <img src="https://images.unsplash.com/photo-1579786419323-980ee401051b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1008&q=80"
+                alt="monkey hanging on a tree">
+            <img src="https://images.unsplash.com/photo-1570288685280-7802a8f8c4fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80"
+                alt="a little monkey with a long mustache">
+        </div>
+    </div>
+
+    <div class="scroller" data-direction="left" data-speed="fast">
+        <ul class="tag-list scroller__inner">
+            <li>Silly</li>
+            <li>monkey</li>
+            <li>slipped</li>
+            <li>on</li>
+            <li>a</li>
+            <li>banana</li>
+            <li>Oops !</li>
+        </ul>
+    </div>
+
+
+</body>
+<script>
+    const scrollers = document.querySelectorAll(".scroller");
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        addAnimation();
+    }
+
+    function addAnimation() {
+        scrollers.forEach(scroller => {
+            scroller.setAttribute("data-animated", true);
+
+            const scrollerInner = scroller.querySelector('.scroller__inner');
+            const scrollerContent = Array.from(scrollerInner.children);
+
+            scrollerContent.forEach(item => {
+                const duplicatedItem = item.cloneNode(true);
+                duplicatedItem.setAttribute('aria-hidden', true);
+                scrollerInner.appendChild(duplicatedItem);
+            });
+        });
+    }
+</script>
+
+</html>
