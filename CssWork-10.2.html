@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <title>Css Work 10.2</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f9f9f9;
+        }
+
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2vw;
+            font-family: "Montserrat", sans-serif;
+            transition: .2s ease;
+        }
+
+        #loader .circle {
+            width: 4pc;
+            height: 4pc;
+            border-radius: 50%;
+            border-color: black;
+            border: 3px solid;
+            border-top-color: rgb(230, 230, 230);
+            border-right-color: rgb(230, 230, 230);
+            animation: loaderAnimation 2s ease infinite;
+        }
+
+        @keyframes loaderAnimation {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        .container {
+            width: 100%;
+            max-width: 1850px;
+            margin: 20px auto;
+            columns: 4;
+            column-gap: 20px;
+        }
+
+        .container .box {
+            width: 100%;
+            margin-bottom: 10px;
+            break-inside: avoid;
+        }
+
+        .container .box img {
+            max-width: 100%;
+            min-width: 100%;
+            border-radius: 15px;
+        }
+
+        @media (max-width: 1500px) {
+
+            .container {
+                width: calc(100% - 40px);
+                columns: 3;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .container {
+                columns: 2;
+            }
+        }
+
+        @media (max-width: 489px) {
+
+            .container {
+                columns: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="loader">
+        <h1>
+            Galeri Yükleniyor
+        </h1>
+        <div class="circle"></div>
+    </div>
+
+    <div class="container">
+        <div class="box">
+            <img src="https://picsum.photos/700/500" alt="">
+        </div>
+        <div class="box">
+            <img src="https://picsum.photos/1000/800" alt="">
+        </div>
+        <div class="box">
+            <img src="https://picsum.photos/700/700" alt="">
+        </div>
+        <div class="box">
+            <img src="https://picsum.photos/700/600" alt="">
+        </div>
+        <div class="box">
+            <img src="https://picsum.photos/700/400" alt="">
+        </div>
+        <div class="box">
+            <img src="https://picsum.photos/700/1000" alt="">
+        </div>
+
+        <div class="box">
+            <img src="https://picsum.photos/700/501" alt="">
+        </div>
+        <div class="box">
+            <img src="https://picsum.photos/1000/801" alt="">
+        </div>
+        <div class="box">
+            <img src="https://picsum.photos/700/701" alt="">
+        </div>
+        <div class="box">
+            <img src="https://picsum.photos/700/601" alt="">
+        </div>
+        <div class="box">
+            <img src="https://picsum.photos/700/401" alt="">
+        </div>
+        <div class="box">
+            <img src="https://picsum.photos/700/1001" alt="">
+        </div>
+
+        <div class="box">
+            <img src="https://picsum.photos/700/1002" alt="">
+        </div>
+        <div class="box">
+            <img src="https://picsum.photos/1000/402" alt="">
+        </div>
+        <div class="box">
+            <img src="https://picsum.photos/700/602" alt="">
+        </div>
+        <div class="box">
+            <img src="https://picsum.photos/700/502" alt="">
+        </div>
+        <div class="box">
+            <img src="https://picsum.photos/700/802" alt="">
+        </div>
+        <div class="box">
+            <img src="https://picsum.photos/500/500" alt="">
+        </div>
+    </div>
+</body>
+
+<script>
+    document.body.style.cssText = "overflow: hidden;"
+    window.addEventListener('load', () => {
+        const laoder = document.getElementById('loader')
+        laoder.style.cssText = 'opacity: 0;'
+
+        setTimeout(() => {
+            laoder.style.cssText = 'opacity: 0; visibility: hidden;'
+            document.body.style.cssText = "overflow-y: auto;"
+        }, 850)
+    })
+</script>
+
+</html>
